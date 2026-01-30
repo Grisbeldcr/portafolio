@@ -9,4 +9,16 @@
     <h1>Grisbel Centeno</h1>
     <p>Ingeniera en Telecomunicaciones | Data | IT</p>
 </body>
+<h2>Proyectos</h2>
+
+<div class="projects">
+{% for project in projects %}
+  <div class="card">
+    <h3>{{ project.title }}</h3>
+    <p><b>Tecnologías:</b> {{ project.tech }}</p>
+    <p>{{ project.description }}</p>
+  </div>
+{% endfor %}
+</div>
 </html>
+
