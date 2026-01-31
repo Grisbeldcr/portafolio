@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ proyecto.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<a href="/" style="color:#c9a227;">← Volver</a>
+
+<h1>{{ proyecto.titulo }}</h1>
+
+<h3>Contexto</h3>
+<p>{{ proyecto.contexto }}</p>
+
+<h3>Problema</h3>
+<p>{{ proyecto.problema }}</p>
+
+<h3>Solución</h3>
+<p>{{ proyecto.solucion }}</p>
+
+<h3>Impacto / Aprendizaje</h3>
+<p>{{ proyecto.impacto }}</p>
+
+<h3>Tecnologías</h3>
+<ul>
+  {% for tech in proyecto.tecnologias %}
+    <li>{{ tech }}</li>
+  {% endfor %}
+</ul>
+
+{% if proyecto.links %}
+  <h3>Enlaces</h3>
+  <ul>
+    {% for nombre, url in proyecto.links.items() %}
+      <li>
+        <a href="{{ url }}" target="_blank">{{ nombre }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</body>
+</html>

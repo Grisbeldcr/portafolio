@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category }} | Proyectos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>{{ category }}</h1>
+<a href="/">← Volver</a>
+
+<div class="projects">
+{% for project in projects %}
+  <div class="card">
+    <h3>{{ project.title }}</h3>
+    <p><b>Tecnologías:</b> {{ project.tech }}</p>
+    <p>{{ project.description }}</p>
+  </div>
+{% endfor %}
+</div>
+
+</body>
+</html>
