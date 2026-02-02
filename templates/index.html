@@ -23,7 +23,7 @@
 
     <div class="cards">
         {% for proyecto in bloque.proyectos %}
-            <a href="/proyecto/{{ proyecto.slug }}" class="card">
+           <a href="{{ url_for('proyecto', slug=proyecto.slug) }}" class="card">
                 <h3>{{ proyecto.nombre }}</h3>
             </a>
         {% endfor %}
