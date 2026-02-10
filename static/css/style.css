@@ -1,7 +1,8 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #0f0f0f;
-    color: #e0e0e0;
+    background-color: #0f1115;
+    color: #e6e6e6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     max-width: 1000px;
     margin: auto;
     padding: 2rem;
@@ -29,23 +30,62 @@ p {
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.2rem;
+    gap: 1.5rem;
     margin-top: 1rem;
 }
 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
 .card {
-    background-color: #151515;
-    border: 1px solid #2a2a2a;
+    display: block;
     padding: 1.2rem;
+    border: 1px solid #1f2430;
+    border-radius: 10px;
     text-decoration: none;
-    color: #e0e0e0;
-    border-radius: 8px;
-    transition: all 0.25s ease;
+    color: #e6e6e6;
+    background: #161a22;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    border-color: #c9a227;
     transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    font-weight: 600;
+}
+
+.card .tagline {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #b5b5b5;
+    line-height: 1.4;
+}
+.card.disabled {
+    background: #f0f0f0;
+    border: 1px dashed #aaa;
+}
+
+.card.disabled h3 {
+    color: #555;
+}
+
+.card.disabled .tagline {
+    color: #666;
+}
+
+.card.disabled .badge {
+    background: transparent;
+    color: #777;
+    border: 1px solid #aaa;
 }
 
 hr {
@@ -65,4 +105,15 @@ hr {
 
 .red-link:hover {
     text-decoration: underline;
+}
+section:nth-of-type(1) .card {
+    border-left: 4px solid #f2b705; /* profesionales */
+}
+
+section:nth-of-type(2) .card {
+    border-left: 4px solid #6c757d; /* personales */
+}
+
+section:nth-of-type(3) .card {
+    border-left: 4px solid #999; /* aprendizaje */
 }

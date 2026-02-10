@@ -9,13 +9,15 @@
 
 <h1>Grisbel Centeno</h1>
 <p><strong>Ingeniera en Telecomunicaciones que integra datos, tecnología y experiencia real para diseñar soluciones útiles y sostenibles.</strong></p>
+
 <div class="redes">
-  <a href="https://www.linkedin.com/in/grisbel-centeno/" target="_blank" class="red-link">
-    LinkedIn
-  </a>
+    <a href="https://www.linkedin.com/in/grisbel-centeno/" target="_blank">
+        LinkedIn
+    </a>
 </div>
 
 <hr>
+
 {% for key, bloque in bloques.items() %}
 <section>
     <h2>{{ bloque.titulo }}</h2>
@@ -23,16 +25,30 @@
 
     <div class="cards">
         {% for proyecto in bloque.proyectos %}
-           <a href="{{ url_for('proyecto', slug=proyecto.slug) }}" class="card">
-                <h3>{{ proyecto.nombre }}</h3>
-            </a>
-        {% endfor %}
-    </div>
+    {% if proyecto.slug %}
+        <a href="{{ url_for('proyecto', slug=proyecto.slug) }}" class="card">
+            <h3>{{ proyecto.nombre }}</h3>
+            {% if proyecto.tagline %}
+                <p class="tagline">{{ proyecto.tagline }}</p>
+            {% endif %}
+        </a>
+    {% else %}
+        <div class="card disabled">
+            <h3>{{ proyecto.nombre }}</h3>
+            {% if proyecto.tagline %}
+                <p class="tagline">{{ proyecto.tagline }}</p>
+            {% endif %}
+            <span class="badge">En desarrollo</span>
+        </div>
+    {% endif %}
+{% endfor %}
+  </div>
 </section>
 <hr>
 {% endfor %}
 
 </body>
 </html>
+
 
 
